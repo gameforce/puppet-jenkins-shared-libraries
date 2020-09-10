@@ -12,6 +12,8 @@ def call(String commands) {
     echo "RVM Commands: ${commands}"
     echo "*************************"
   }
-  echo "DEBUG=${DEBUG} RUBY_STRING=${env.RUBY_VERSION}@${env.RUBY_GEMSET}"
+  else {
+    echo "DEBUG is ${DEBUG} RUBY_STRING is ${env.RUBY_VERSION}@${env.RUBY_GEMSET}"
+  }
   sh "bash -c \"source /usr/local/rvm/scripts/rvm && rvm use --install --create ${ruby_string} && ${commands}\""
 }
